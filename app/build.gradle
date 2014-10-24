@@ -5,12 +5,12 @@ android {
     buildToolsVersion "21.0.1"
 
     defaultConfig {
-        applicationId "me.cristiangomez.wolfreader"
+        applicationId "me.cristiangomez.wolfreader.app"
         minSdkVersion 10
         compileSdkVersion 21
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0"
+        versionCode 5
+        versionName "0.2"
     }
     buildTypes {
         release {

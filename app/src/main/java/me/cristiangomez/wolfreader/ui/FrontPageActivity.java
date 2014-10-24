@@ -140,6 +140,7 @@ public class FrontPageActivity extends ActionBarActivity {
             mNewsRecycler.setHasFixedSize(true);
             mNewsRecycler.getAdapter().notifyDataSetChanged();
             swipeRefreshLayout.setRefreshing(false);
+            mDownloaderTask = new DownloadFeedTask();
         }
 
         @Override
