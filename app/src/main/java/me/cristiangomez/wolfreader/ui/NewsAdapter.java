@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
@@ -13,7 +12,6 @@ import org.joda.time.Interval;
 import org.joda.time.Period;
 
 import java.net.URISyntaxException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.ButterKnife;
@@ -27,26 +25,6 @@ import me.cristiangomez.wolfreader.model.News;
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     private News[] mNewsDataset;
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTitleView;
-        public TextView mUpVotesView;
-        public TextView mAuthorView;
-        public TextView mSourceView;
-        public View mView;
-        @InjectView(R.id.sub) TextView mSubView;
-        @InjectView(R.id.click_number) TextView mClikNumberView;
-        @InjectView(R.id.since) TextView mSinceView;
-        @InjectView(R.id.article_photo) NetworkImageView mImage;
-        public ViewHolder (View view) {
-            super(view);
-            mTitleView = (TextView) view.findViewById(R.id.title);
-            mUpVotesView = (TextView) view.findViewById(R.id.up_votes);
-            mAuthorView = (TextView) view.findViewById(R.id.author);
-            mSourceView = (TextView) view.findViewById(R.id.source);
-            ButterKnife.inject(this,view);
-        }
-    }
 
     public NewsAdapter(News[] newsDataSet) {
         mNewsDataset = newsDataSet;
@@ -64,8 +42,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         News news = (News) mNewsDataset[position];
-        if (news.getImageUrl()!=null && !news.getImageUrl().isEmpty()) {
-            viewHolder.mImage.setImageUrl(news.getImageUrl(), VolleySingleton.getInstance(null).getImageLoader());
+        if (news.getImageUrl() != null && !news.getImageUrl().isEmpty()) {
+            viewHolder.mPhotoArticleView.setImageUrl(news.getImageUrl(), VolleySingleton.getInstance(null).getImageLoader());
         }
         viewHolder.mTitleView.setText(news.getTitle());
         try {
@@ -73,10 +51,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             if (news.getSource().contains(".")) {
                 source = news.getSource().split("\\.")[0];
             }
-            source = source.substring(0,1).toUpperCase() + source.substring(1);
+            source = source.substring(0, 1).toUpperCase() + source.substring(1);
             viewHolder.mSourceView.setText(source);
         } catch (URISyntaxException e) {
             e.printStackTrace();
+        }
+        if (news.getSub() == null || news.getSub().isEmpty()) {
+            viewHolder.mSubSeparatorView.setVisibility(View.GONE);
         }
         viewHolder.mAuthorView.setText(news.getAuthor());
         viewHolder.mUpVotesView.setText(String.valueOf(news.getUpVotes()));
@@ -87,13 +68,39 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         Date now = new Date();
         Interval interval = new Interval(since.getTime(), now.getTime());
         Period period = interval.toPeriod();
-        String elapse = String.format("%dd",period.getDays());
+        String elapse = String.format("%dd", period.getDays());
         viewHolder.mSinceView.setText(elapse);
     }
-
 
     @Override
     public int getItemCount() {
         return mNewsDataset.length;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView mTitleView;
+        public TextView mUpVotesView;
+        public TextView mAuthorView;
+        public TextView mSourceView;
+        public View mView;
+        @InjectView(R.id.sub)
+        TextView mSubView;
+        @InjectView(R.id.click_number)
+        TextView mClikNumberView;
+        @InjectView(R.id.since)
+        TextView mSinceView;
+        @InjectView(R.id.article_photo)
+        NetworkImageView mPhotoArticleView;
+        @InjectView(R.id.sub_separator)
+        View mSubSeparatorView;
+
+        public ViewHolder(View view) {
+            super(view);
+            mTitleView = (TextView) view.findViewById(R.id.title);
+            mUpVotesView = (TextView) view.findViewById(R.id.up_votes);
+            mAuthorView = (TextView) view.findViewById(R.id.author);
+            mSourceView = (TextView) view.findViewById(R.id.source);
+            ButterKnife.inject(this, view);
+        }
     }
 }

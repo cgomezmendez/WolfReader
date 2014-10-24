@@ -8,8 +8,8 @@
     card_view:cardCornerRadius="4dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingBottom="10dp">
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,8 +20,8 @@
             android:id="@+id/article_photo"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:adjustViewBounds="true"
             android:layout_weight="0"
+            android:adjustViewBounds="true"
             android:scaleType="center"
             android:src="@drawable/logo_meneame" />
 
@@ -30,15 +30,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="70"
             android:text="@string/placeholder_title"
-            android:layout_marginTop="10dp"
             android:textSize="14sp" />
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
             android:id="@+id/click_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,27 +55,27 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginTop="8sp"
-            android:layout_weight="0"
             android:layout_toRightOf="@id/click_number"
+            android:layout_weight="0"
             android:background="@drawable/circle" />
 
         <TextView
             android:id="@+id/since"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/click_number_separator"
             android:layout_weight="1"
             android:text="@string/placeholder_since"
-            android:layout_toRightOf="@id/click_number_separator"
             android:textColor="@color/light_gray"
             android:textSize="10sp" />
         <TextView
-            android:layout_marginTop="5dp"
             android:id="@+id/up_votes"
             android:layout_width="wrap_content"
             android:layout_height="18dp"
-            android:background="@drawable/bordered_rectangle"
             android:layout_below="@id/click_number"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bordered_rectangle"
             android:text="@string/placeholder_meneos"
             android:textColor="@color/blue_dark"
             android:textSize="10sp" />
@@ -97,6 +98,7 @@
             android:textSize="10sp" />
 
         <View
+            android:id="@+id/sub_separator"
             android:layout_width="2dp"
             android:layout_height="2dp"
             android:layout_gravity="center"
