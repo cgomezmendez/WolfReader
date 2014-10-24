@@ -1,15 +1,11 @@
 package me.cristiangomez.wolfreader;
 
-import android.util.Log;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringReader;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,17 +17,16 @@ import me.cristiangomez.wolfreader.model.News;
  */
 public class MeneameParser {
     private static final String ns = null;
-    private static XmlPullParserFactory pullParserFactory;
     private static final String LOG_TAG = MeneameParser.class.getSimpleName();
     private static final String NAMESPACE = null;
+    private static XmlPullParserFactory pullParserFactory;
 
-    public List<News> parse(String string) throws XmlPullParserException, IOException, ParseException {
+    public List<News> parse(InputStream stream) throws XmlPullParserException, IOException, ParseException {
         if (pullParserFactory==null) {
             pullParserFactory = XmlPullParserFactory.newInstance();
         }
         List<News> newsList = new ArrayList<News>();
         XmlPullParser parser = pullParserFactory.newPullParser();
-        InputStream stream = new ByteArrayInputStream(string.getBytes("UTF8"));
         parser.setInput(stream,"UTF-8");
         parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, true);
         int eventType = parser.getEventType();

@@ -13,6 +13,7 @@ import org.joda.time.Period;
 
 import java.net.URISyntaxException;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -24,9 +25,10 @@ import me.cristiangomez.wolfreader.model.News;
  * Created by Cristian on 10/18/2014.
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
-    private News[] mNewsDataset;
+    public static final int LAST_POSITION = -1;
+    private List<News> mNewsDataset;
 
-    public NewsAdapter(News[] newsDataSet) {
+    public NewsAdapter(List<News> newsDataSet) {
         mNewsDataset = newsDataSet;
     }
 
@@ -41,7 +43,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        News news = (News) mNewsDataset[position];
+        News news = (News) mNewsDataset.get(position);
         if (news.getImageUrl() != null && !news.getImageUrl().isEmpty()) {
             viewHolder.mPhotoArticleView.setImageUrl(news.getImageUrl(), VolleySingleton.getInstance(null).getImageLoader());
         }
@@ -74,7 +76,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mNewsDataset.length;
+        return mNewsDataset.size();
+    }
+
+    public void addItem(News news, int position) {
+        position = position == LAST_POSITION ? getItemCount() : position;
+        mNewsDataset.add(position, news);
+        notifyItemChanged(position);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

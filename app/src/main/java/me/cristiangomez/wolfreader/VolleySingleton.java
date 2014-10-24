@@ -1,6 +1,5 @@
 package me.cristiangomez.wolfreader;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
@@ -46,7 +45,7 @@ public class VolleySingleton {
 
     public static RequestQueue getRequestQueue() {
         if (mRequestQueue==null) {
-            mRequestQueue = Volley.newRequestQueue(mContext.getApplicationContext(),new HurlStack());
+            mRequestQueue = Volley.newRequestQueue(mContext, new HurlStack());
 
         }
         return mRequestQueue;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">WolfReader</string>
+    <string name="app_name">Menéame WolfReader</string>
     <string name="title_activity_front_page">Portada</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -16,4 +16,6 @@
     <color name="blue_dark">#127AAB</color>
     <color name="blue_light">#7BB8DD</color>
     <color name="light_gray">#B7B7B7</color>
+    <color name="meneame_orange">#FFE1B6</color>
+    <color name="meneame_text_color">#ff6400</color>
 </resources>
