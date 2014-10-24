@@ -1,3 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">WolfReader</string>
+    <string name="title_activity_front_page">Portada</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="placeholder_title">BE MAKER! Kit de Arduino: Historia de una estafa de crowdfunding</string>
+    <string name="placeholder_description">Description</string>
+    <string name="placeholder_meneos">20</string>
+    <string name="placeholder_categoria">Tecnología</string>
+    <string name="placeholder_via">gameit</string>
+    <string name="placeholder_user">tupacsoul</string>
+    <string name="placeholder_clicks">100k</string>
+    <string name="placeholder_since">5d</string>
+    <color name="blue_dark">#127AAB</color>
+    <color name="blue_light">#7BB8DD</color>
+    <color name="light_gray">#B7B7B7</color>
 </resources>
