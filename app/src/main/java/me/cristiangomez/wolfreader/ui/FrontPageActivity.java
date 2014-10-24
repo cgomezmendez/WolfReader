@@ -1,11 +1,14 @@
 package me.cristiangomez.wolfreader.ui;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -15,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -34,7 +38,7 @@ public class FrontPageActivity extends ActionBarActivity {
         setContentView(R.layout.activity_front_page);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new FrontPageFragment())
                     .commit();
         }
         getSupportActionBar().setSubtitle("Portada");
@@ -62,16 +66,18 @@ public class FrontPageActivity extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment implements DownloadFeedTask.OnDownloadListener {
-        private static final String LOG_TAG = PlaceholderFragment.class.getSimpleName();
-        private static List<News> newsList;
+    public static class FrontPageFragment extends Fragment implements DownloadFeedTask.OnDownloadListener, SwipeRefreshLayout.OnRefreshListener {
+        private static final String LOG_TAG = FrontPageFragment.class.getSimpleName();
+        private static List<News> mNewsList;
         @InjectView(R.id.news_recycler_view)
         RecyclerView mNewsRecycler;
+        @InjectView(R.id.swipe_container)
+        SwipeRefreshLayout swipeRefreshLayout;
         private NewsAdapter mNewsAdapter;
         private ProgressDialog mProgressDialog;
         private DownloadFeedTask mDownloaderTask;
 
-        public PlaceholderFragment() {
+        public FrontPageFragment() {
         }
 
         @Override
@@ -79,25 +85,26 @@ public class FrontPageActivity extends ActionBarActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_front_page, container, false);
             ButterKnife.inject(this, rootView);
+            if (mNewsList != null) {
+                mNewsRecycler.setAdapter(new NewsAdapter(mNewsList));
+            }
             RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
             mNewsRecycler.setLayoutManager(layoutManager);
             if (savedInstanceState == null) {
-                Uri.Builder builder = new Uri.Builder();
-                builder.scheme("https")
-                        .authority("www.meneame.net")
-                        .appendPath("feedburner-rss2.php")
-                        .appendQueryParameter("rows", "20");
-                Uri uri = builder.build();
-                mDownloaderTask = new DownloadFeedTask();
-                mDownloaderTask.addOnDownloadListener(this);
-                mProgressDialog = ProgressDialog.show(this.getActivity(), "Descargando Noticias", "Descargando noticias, por favor espere...", true, false);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    mDownloaderTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, uri.toString());
-                } else {
-                    mDownloaderTask.execute(uri.toString());
-                }
-            }
+                mNewsRecycler.setLayoutManager(layoutManager);
+                mNewsRecycler.setAdapter(new NewsAdapter(new ArrayList<News>()));
+                mNewsRecycler.setHasFixedSize(true);
+                new Handler().postDelayed(new Runnable() {
 
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(true);
+                    }
+                }, 500);
+                poblateList();
+            }
+            swipeRefreshLayout.setOnRefreshListener(this);
+            swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW);
             return rootView;
         }
 
@@ -109,7 +116,6 @@ public class FrontPageActivity extends ActionBarActivity {
         @Override
         public void onDestroy() {
             super.onDestroy();
-            newsList = null;
         }
 
         @Override
@@ -126,8 +132,36 @@ public class FrontPageActivity extends ActionBarActivity {
                 mProgressDialog.dismiss();
                 mProgressDialog = null;
             }
-            mNewsAdapter = new NewsAdapter(newsList);
-            mNewsRecycler.swapAdapter(mNewsAdapter, true);
+            mNewsList = newsList;
+            mNewsAdapter = new NewsAdapter(mNewsList);
+            RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+            mNewsRecycler.setLayoutManager(layoutManager);
+            mNewsRecycler.setAdapter(mNewsAdapter);
+            mNewsRecycler.setHasFixedSize(true);
+            mNewsRecycler.getAdapter().notifyDataSetChanged();
+            swipeRefreshLayout.setRefreshing(false);
+        }
+
+        @Override
+        public void onRefresh() {
+            poblateList();
+        }
+
+        public void poblateList() {
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme("https")
+                    .authority("www.meneame.net")
+                    .appendPath("feedburner-rss2.php")
+                    .appendQueryParameter("rows", "20");
+            Uri uri = builder.build();
+            mDownloaderTask = new DownloadFeedTask();
+            mDownloaderTask.addOnDownloadListener(this);
+            //mProgressDialog = ProgressDialog.show(this.getActivity(), "Descargando Noticias", "Descargando noticias, por favor espere...", true, false);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                mDownloaderTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, uri.toString());
+            } else {
+                mDownloaderTask.execute(uri.toString());
+            }
         }
     }
 }

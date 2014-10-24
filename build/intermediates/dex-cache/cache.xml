@@ -4,62 +4,42 @@
     <item
         dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\simple-xml-2.7.1-1e487f28beafc3b60496072f23c9d182414e503c.jar"
         jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\org.simpleframework\simple-xml\2.7.1\dd91fb744c2ff921407475cb29a1e3fee397d411\simple-xml-2.7.1.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="dd91fb744c2ff921407475cb29a1e3fee397d411"/>
-    <item
-        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\classes-3df92f9ff49ec1b6fd179ef1ec821096af528b13.jar"
-        jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library-aar\1.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e"/>
-    <item
-        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-38f88925fab3e532f234d7bafe152839624f648c.jar"
-        jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0"/>
+        jumboMode="false" revision="21.0.1" sha1="dd91fb744c2ff921407475cb29a1e3fee397d411" />
     <item
         dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\joda-time-2.3-3fe67fbe16826a81daea54c776914608516d614a.jar"
         jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\joda-time\joda-time\2.3\56498efd17752898cfcc3868c1b6211a07b12b8f\joda-time-2.3.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="56498efd17752898cfcc3868c1b6211a07b12b8f"/>
-    <item
-        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\classes-2dae7efa23255321c636689dc5905ff55c24a67a.jar"
-        jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2"/>
-    <item
-        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\classes-c275f9f591b9589227fac03f5edc5cfa34847e68.jar"
-        jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="95fd37732ec852e99f07eeb516a3650172f1d136"/>
+        jumboMode="false" revision="21.0.1" sha1="56498efd17752898cfcc3868c1b6211a07b12b8f" />
     <item
         dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\classes-358ccbf9d2c51dc863a58adf6e6e149cd36be932.jar"
         jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
-    <item
-        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-de384b59d658e8685659811e8f72a9a43ae3ded4.jar"
-        jar="C:\Users\Cristian\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
+        jumboMode="false" revision="21.0.1" sha1="686344a780033e4ba22b926cd225f8d4941247e6" />
     <item
         dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\classes-ce985d254945af1213aebb7ed0751d7bbe9c50e4.jar"
         jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="7d2525cba8ed61fff102977caed964fc22061e34"/>
+        jumboMode="false" revision="21.0.1" sha1="7d2525cba8ed61fff102977caed964fc22061e34" />
+    <item
+        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\classes-3df92f9ff49ec1b6fd179ef1ec821096af528b13.jar"
+        jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library-aar\1.0.0\classes.jar"
+        jumboMode="false" revision="21.0.1" sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e" />
+    <item
+        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-38f88925fab3e532f234d7bafe152839624f648c.jar"
+        jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
+        jumboMode="false" revision="21.0.1" sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0" />
+    <item
+        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\classes-2dae7efa23255321c636689dc5905ff55c24a67a.jar"
+        jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.0\classes.jar"
+        jumboMode="false" revision="21.0.1" sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2" />
+    <item
+        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\classes-c275f9f591b9589227fac03f5edc5cfa34847e68.jar"
+        jar="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.0\classes.jar"
+        jumboMode="false" revision="21.0.1" sha1="95fd37732ec852e99f07eeb516a3650172f1d136" />
+    <item
+        dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-de384b59d658e8685659811e8f72a9a43ae3ded4.jar"
+        jar="C:\Users\Cristian\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
+        jumboMode="false" revision="21.0.1" sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e" />
     <item
         dex="C:\Users\Cristian\Dropbox\Trabajos\Personales\Android\WolfReader\app\build\intermediates\pre-dexed\debug\butterknife-5.1.2-4ffcf7d7b30266c16624c916d73430ed4f5edd11.jar"
         jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\5.1.2\daf5472b0df6dabaceb6ad755b3812535863965a\butterknife-5.1.2.jar"
-        jumboMode="false"
-        revision="21.0.1"
-        sha1="daf5472b0df6dabaceb6ad755b3812535863965a"/>
+        jumboMode="false" revision="21.0.1" sha1="daf5472b0df6dabaceb6ad755b3812535863965a" />
 
 </pre-dex-items>

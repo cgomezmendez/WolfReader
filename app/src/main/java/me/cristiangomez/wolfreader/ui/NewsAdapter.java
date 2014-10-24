@@ -70,7 +70,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         Date now = new Date();
         Interval interval = new Interval(since.getTime(), now.getTime());
         Period period = interval.toPeriod();
-        String elapse = String.format("%dd", period.getDays());
+        String elapse = String.format("%dd %dh", period.getDays(), period.getHours());
         viewHolder.mSinceView.setText(elapse);
     }
 
