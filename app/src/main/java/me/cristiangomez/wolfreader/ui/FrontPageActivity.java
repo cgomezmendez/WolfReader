@@ -8,10 +8,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +33,10 @@ import me.cristiangomez.wolfreader.model.News;
 
 
 public class FrontPageActivity extends ActionBarActivity {
+    @InjectView(R.id.drawer)
+    DrawerLayout mDrawerLayout;
+    @InjectView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +48,11 @@ public class FrontPageActivity extends ActionBarActivity {
                     .add(R.id.container, new FrontPageFragment())
                     .commit();
         }
-        getSupportActionBar().setSubtitle("Portada");
-
+        ButterKnife.inject(this);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
+        actionBarDrawerToggle.syncState();
     }
 
 

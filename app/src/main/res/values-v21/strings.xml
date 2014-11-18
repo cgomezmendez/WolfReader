@@ -13,8 +13,6 @@
     <string name="placeholder_user">tupacsoul</string>
     <string name="placeholder_clicks">100k</string>
     <string name="placeholder_since">5d</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
     <color name="blue_dark">#127AAB</color>
     <color name="blue_light">#7BB8DD</color>
     <color name="light_gray">#B7B7B7</color>

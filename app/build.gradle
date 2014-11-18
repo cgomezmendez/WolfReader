@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "me.cristiangomez.wolfreader.app"
-        minSdkVersion 10
+        minSdkVersion 11
         compileSdkVersion 21
         targetSdkVersion 21
         versionCode 5
@@ -24,16 +24,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile('org.simpleframework:simple-xml:2.7.+') {
+        exclude module: 'stax'
+        exclude module: 'stax-api'
+        exclude module: 'xpp3'
+    }
     compile 'com.android.support:appcompat-v7:21.0.0'
     compile 'com.android.support:cardview-v7:21.0.0'
     compile 'com.android.support:recyclerview-v7:21.0.0'
     compile 'com.jakewharton:butterknife:5.1.2'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
-    compile('org.simpleframework:simple-xml:2.7.+'){
-        exclude module: 'stax'
-        exclude module: 'stax-api'
-        exclude module: 'xpp3'
-    }
     compile 'joda-time:joda-time:2.3'
+    compile 'com.google.android.gms:play-services:6.1.71'
+    compile 'com.google.guava:guava:18.0'
 }
